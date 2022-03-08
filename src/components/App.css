@@ -17,5 +17,5 @@
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
-  animation: fadeShow 5s forwards ease-in-out;
+  animation: fadeShow 5s ease-in-out;
 }
