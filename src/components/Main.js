@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SellForm from "./SellForm";
 import BuyForm from "./BuyForm";
 
-const Main = ({ ethBalance, tokenBalance, token, ethSwap, account }) => {
+const Main = ({ ethBalance, tokenBalance, buyTokens, sellTokens }) => {
   const [currentForm, setCurrentForm] = useState("buy");
 
   return (
@@ -31,13 +31,13 @@ const Main = ({ ethBalance, tokenBalance, token, ethSwap, account }) => {
                 <BuyForm
                   ethBalance={ethBalance}
                   tokenBalance={tokenBalance}
-                  ethSwap={ethSwap}
+                  buyTokens={buyTokens}
                 />
               ) : (
                 <SellForm
                   ethBalance={ethBalance}
                   tokenBalance={tokenBalance}
-                  ethSwap={ethSwap}
+                  sellTokens={sellTokens}
                 />
               )}
             </div>

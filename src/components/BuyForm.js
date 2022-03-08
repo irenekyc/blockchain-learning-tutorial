@@ -2,29 +2,15 @@ import React, { useState } from "react";
 import tokenLogo from "../logo.png";
 import ethLogo from "../eth-logo.png";
 
-const BuyForm = ({ ethBalance, tokenBalance, ethSwap, account }) => {
+const BuyForm = ({ ethBalance, tokenBalance, buyTokens }) => {
   const [value, setValue] = useState({
     input: 0,
     output: 0,
   });
-  const [formLoading, setFormLoading] = useState(false);
 
-  const buyTokens = () => {
-    const etherAmount = window.web3.utils.toWei(
-      value.input.toString(),
-      "Ether"
-    );
-    ethSwap.methods
-      .buyTokens()
-      .send({ value: etherAmount, from: account })
-      .on("transactionHash", (hash) => {
-        setFormLoading(false);
-      });
-  };
   const onClickFormSubmit = (event) => {
     event.preventDefault();
-    formLoading(true);
-    buyTokens();
+    buyTokens(value.input);
   };
   return (
     <form className="mb-3" onSubmit={(event) => onClickFormSubmit(event)}>
